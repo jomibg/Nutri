@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+<div class="wraper-flex frm mbl">
+<div class="naslov text-success">Prijavi se</div>
+<form method="post" action="{% url 'accounts:login' %}">
+{% if form.errors %}
+<h5><p class="text-danger">Korisničko ime i šifra se ne podudaraju! Pokušajte ponovo!</p></h5>
+{% endif %}
+{% if next %}
+{% if user.is_authenticated %}
+    <p style="font-size: smaller" class="text-danger">Your account doesn't have access to this page. To proceed,
+    please login with an account that has access.</p>
+{% else %}
+    <p style="font-size: smaller" class="text-danger">Please login to see this page.</p>
+{% endif %}    
+{% endif %}
+{% csrf_token %}
+<h5>
+
+{% for field in form %}
+<p class="text-info">
+{{ field.label_tag }}</p>
+<p>
+{{ field }}
+</p>
+<br>
+{% for error in field.errors %}
+    <p style="font-size: smaller" class="text-danger">{{ error }}</p>
+{% endfor %}
+{% endfor %}
+</h5>
+
+<button type="submit" class="btn info">prijavi se</button>
+
+<input type="hidden" name="next" value="{{ next }}">
+</form>
+
+<h5>
+	<a class="frm-link" href="{% url 'accounts:password_reset' %}">Izgubili ste šifru?</a>
+</h5>
+
+</div>
+{% endblock %}

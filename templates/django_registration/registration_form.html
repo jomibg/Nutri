@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %} 
+{% block content %}
+<div class="wraper-flex frm">
+    <div class="text-success naslov">Registruj se</div>
+<form method="POST">
+	{% csrf_token %}
+	<h5>
+	{% for field in form %}
+    <p class="text-info">{{ field.label_tag }}</p>
+    <p>{{ field }}
+    </p><br>
+    {% for error in field.errors %}
+    <p style="font-size: smaller" class="text-danger">{{ error }}</p>
+    {% endfor %}
+    {% endfor %}
+    </h5>
+    <button type="submit" class="btn info">registruj se</button></p>
+</form>
+<h5>
+<a class="frm-link" href="{% url 'accounts:login' %}">Već imate nalog?</a>
+</h5>
+</div>
+{% endblock %}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+{% load static %}
+<html> 
+<head>
+  <meta charset="UTF-8">
+  <title>NutriBlog</title>
+  <link rel="stylesheet" href="{% static 'base.css' %}">
+  <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+  <script src="{% static 'base.js' %}"></script>
+  <script src="https://kit.fontawesome.com/e6c8b27e0c.js" crossorigin="anonymous"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+<body> 
+  <div class="navbar1" id="topnav">
+    <a class="icon"><i class="fa fa-bars" onclick="spread();"></i></a>
+    <a href="{% url 'home' %}" class="nav1-item"><i class="fas fa-home"></i>Početna</a>
+    {% if user.is_authenticated %}
+    <a href="{% url 'accounts:ch_info' pk=user.pk %}" class="nav1-item right">Izmeni podatke</a>
+    <a href="{% url 'accounts:logout'%}" class="nav1-item right">
+    Odjavi se</a>
+    {% else %}
+    <a href="{% url 'accounts:register' %}" class="nav1-item right"><i class="fas fa-fw fa-user"></i>Registruje se</a>
+    <a href="{% url 'accounts:login' %}" class="nav1-item right"><i class="fas fa-sign-in-alt"></i>Prijavi se</a>
+    {% endif %}
+    <a href="{% url 'blog:topic_list' %}" class="nav1-item">Teme</a>
+    <a href="{% url 'blog:post_display' %}" class="nav1-item">Objave</a>
+    <a href="{% url 'about' %}" class="nav1-item">O nama</a>
+    <a href="" class="nav1-item"><i class="fas fa-donate"></i>Doniraj</a>
+    {% if user.is_superuser %}
+    <a href="{% url 'blog:post_create' %}" class="nav1-item right">Kreiraj objavu</a>
+    <a href="{% url 'blog:post_unpublished' %}" class="nav1-item right">Neobjavljene teme</a>
+    {% endif %}
+  </div>
+
+  <!-- Main Content -->
+{% block content %}
+{% endblock %}
+{% block meta %}
+{% endblock %}
+</body>
+  <!-- Footer -->
+  <footer>
+  <div class="wraper-flex socials">
+      <div class="in"><a href=""><i class="fab fa-instagram"></i></a></div>
+      <div class="tw"><a href=""><i class="fab fa-twitter"></i></a></div>
+      <div class="yt"><a href=""><i class="fab fa-youtube"></i></a></div>
+    </div>
+  <p style="color: white;">Copyright © Your Website 2020</p>
+</footer>
+
+</html>

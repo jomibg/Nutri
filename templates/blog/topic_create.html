@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %} 
+{% block content %}
+<div class="containter-fluid">
+<div class="row">
+    <h3 class="text-info text-right">
+        Dodaj temu
+    </h3>
+    <br>
+    <form method="POST" class="post-form" enctype="multipart/form-data">
+    {% csrf_token %}
+    <p>
+    <h4 class="text-primary text-center my-2">Naziv teme</h4>
+    </p>
+    <p class="text-center">
+    {{ form.name }}
+    </p>
+    {% for error in form.name.errors %}
+          <p style="font-size: smaller" class="text-danger text-center">{{ error }}</p>
+          <br>
+    {% endfor %}
+    <p class="text-center"><button type="submit" class="btn btn-primary btn-lg">Dodaj</button>
+    </form>
+</p>
+</div>
+
+</div>
+</div>
+</div>
+{% endblock %} 

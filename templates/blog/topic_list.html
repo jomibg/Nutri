@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="m10 wraper-flex column">
+<h2 class="naslov text-success">Teme</h2>
+{% for topic in topics %}
+<div class="tema"><a class="naslov-ref" href="{% url 'blog:topic_detail' pk=topic.pk %}">{{ topic }}</a></div>
+{% endfor %}
+<h3>
+{% if user.is_superuser %}
+<p align="center">
+<a class="frm-link" href="{% url 'blog:topic_create' %}">Dodaj temu</a>
+</p>
+{% endif %}
+</h3>
+</div>
+{% endblock %}

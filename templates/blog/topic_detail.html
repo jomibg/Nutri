@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="containter-fluid">
+<div class="row">
+<div class="mx-auto py-3 bg-light rounded-lg" style="width:750px;">
+<h3><p class="text-center text-info border-bottom border-info">{{topic.name}}</p></h3>
+
+{% for post in posts %}
+<a class="text-center text-primary border-bottom" href='{{ post.get_absolute_url }}'>{{ post }}</a>
+{% endfor %}
+
+<p class="text-right">
+<a class="text-danger" href="{% url 'blog:topic_delete' pk=topic.pk %}">
+Obriši temu
+</a>
+</p>
+</div>
+</div>
+</div>
+{% endblock %}

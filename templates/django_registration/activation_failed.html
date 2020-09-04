@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="m5 wraper-flex">
+<h4>
+<p class="text-danger">Neuspešna aktivacija!</p>
+<p class="text-danger">{{ activation_error.message }}</p>
+</h4>
+</div>
+{% endblock %}

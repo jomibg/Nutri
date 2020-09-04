@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="containter-fluid">
+<div class="row">
+<div class="mx-auto py-3 bg-light rounded" style="width:750px;">
+
+
+<h1><p class="text-center text-secondary border-bottom border-secondary">{{ post.title }}</p></h1>
+
+<h4><p class="bg-white text-center border border-secondary p-1" style="word-wrap: break-word;">{{ post.text|safe|linebreaksbr }}</p>
+</h4>
+
+<p class="text-right text-secondary">{{ post.published_date }}</p>
+<form id="likebutton" method="POST" action="{% url 'blog:preference_add' pk=post.pk value='like' %}">
+{% csrf_token %}
+<button type="submit">+like</button>
+</form>{{post.likes}}   |<form id="dislikebutton" method="POST" action="{% url 'blog:preference_add' pk=post.pk value='dislike' %}">
+{% csrf_token %}
+<button type="submit">-dis</button>
+</form>{{post.dislikes}}
+
+{% if user.is_superuser %}
+<p class="text-right text-secondary">{{ post.tags|safe|linebreaksbr }}</p>
+<p class="text-right text-secondary">{{ post.clicks }}</p>
+
+
+<p class="text-right">
+<a class="text-danger" href="{% url 'blog:post_delete' post.pk %}">
+Dugme brisanje
+</a>
+</p>
+
+<p class="text-right">
+<a class="text-info" href="{% url 'blog:post_update' post.pk %}">
+Izmeni objavu
+</a>
+</p>
+
+<p class="text-right">
+<a class="text-info" href="{% url 'blog:mng_adds' post.pk %}">
+Upravljaj dodacima
+</a>
+</p>
+
+{% if not post.published_date %}
+<p class="text-right">
+<a class="text-danger" href="{% url 'blog:post_publish' post.pk %}">
+Objavi
+</a>
+</p>
+{% endif %}
+
+{% endif %}
+</div>
+</div>
+<div class="row mx-auto">
+	<h5>Dodaj komentar</h5>
+	<form method="POST" action="{% url 'blog:comment_add' pk=post.pk %}" enctype="multipart/form-data">
+	{% csrf_token %}
+	<p>{{ comment_form.text }}</p>
+	<button class="btn btn-primary btn-sm" type="submit">Dodaj komentar</button>
+	</form>
+</div>
+
+<div class="row mx-auto">
+	<div class="mx-auto">
+	{% for comment in comments %}
+	<p class="text-center">{{ comment.text }}</p>
+	<p>{{ comment.author }}</p>
+	<br>
+	{% endfor %}
+	</div>
+</div>
+<a class="tex-info" href="{% url 'blog:comment_list' pk=post.pk %}">Vidi sve komentare</a>
+</div>
+{% endblock %}
+{% block meta %}
+{{ block.super }}
+{{ post.get_meta_keywords }}
+{% endblock %}
