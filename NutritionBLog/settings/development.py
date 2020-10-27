@@ -4,9 +4,9 @@ INTERNAL_IPS=['127.0.0.1',]
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'DemoTest',
+        'NAME': 'NutriBlog',
         'USER': 'postgres',
-        'PASSWORD': 'tomenage1',
+        'PASSWORD': 'upaljacb1',
         'HOST':'localhost',
         'PORT':'5432',
     }
@@ -21,8 +21,26 @@ CACHES={
 
 }
 ####################STATIC###################################
+#STATIC_ROOT=os.path.join(BASE_DIR,'static')
 STATICFILES_DIRS = [os.path.join(BASE_DIR,'static'),]
 MEDIA_ROOT=os.path.join(BASE_DIR,'media')
 #######################EMAIL###################################
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
+EMAIL_FILE_PATH='temp/emails/'
 SERVER_EMAIL='mojserver@gmail.com'
+#####################LOGING####################################
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'root': {
+        'handlers': ['console'],
+        'level': 'DEBUG',
+    },
+}
+
+WEBSITE_URL='localhost:8000'

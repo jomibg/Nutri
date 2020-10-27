@@ -1,0 +1,5 @@
+Najpopularnije ovog meseca {{date}}
+Pogledajte objave iz proteklih mesec dana
+{% for p in posts %}
+{{p.title}}-{{p.get_full_url}},
+{% endfor %}

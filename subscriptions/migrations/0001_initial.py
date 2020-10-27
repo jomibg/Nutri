@@ -15,12 +15,13 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='ProfileInfo',
+            name='Subscription',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('last_comment', models.DateField(blank=True, null=True)),
-                ('comments_per_day', models.IntegerField(blank=True, default=0)),
-                ('user', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, related_name='info', to=settings.AUTH_USER_MODEL)),
+                ('date', models.DateField(auto_now_add=True)),
+                ('weekly', models.BooleanField(blank=True, default=False)),
+                ('monthly', models.BooleanField(blank=True, default=True)),
+                ('user', models.OneToOneField(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
             ],
         ),
     ]

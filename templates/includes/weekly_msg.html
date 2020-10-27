@@ -1,0 +1,9 @@
+<h2 style="color:#50CD40;"><p align="center">Nove objave {{date}}</p></h2>
+<p align="cneter" style="color: #46a049;">Pogledajte objave iz protekle nedelje</p>
+<ol>
+	{% for post in posts %}
+	<li>
+		<a href="{{post.get_full_url}}">{{p.title}}</a>
+	</li>
+	{% endfor %}
+</ol>

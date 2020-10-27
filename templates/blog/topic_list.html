@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<div class="m10 wraper-flex column">
-<h2 class="naslov text-success">Teme</h2>
+<div class="comments">
+<h2 class="naslov text-info" style="cursor: default;font-family: serif;">Teme</h2>
 {% for topic in topics %}
-<div class="tema"><a class="naslov-ref" href="{% url 'blog:topic_detail' pk=topic.pk %}">{{ topic }}</a></div>
+<div class="tema"><a class="link-success" href="{% url 'blog:topic_detail' pk=topic.pk %}">{{ topic }}</a></div>
 {% endfor %}
 <h3>
 {% if user.is_superuser %}

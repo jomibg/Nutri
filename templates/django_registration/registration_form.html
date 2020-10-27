@@ -7,7 +7,7 @@
 	{% csrf_token %}
 	<h5>
 	{% for field in form %}
-    <p class="text-info">{{ field.label_tag }}</p>
+    <p class="text-info" align="center">{{ field.label_tag }}</p>
     <p>{{ field }}
     </p><br>
     {% for error in field.errors %}
@@ -17,8 +17,6 @@
     </h5>
     <button type="submit" class="btn info">registruj se</button></p>
 </form>
-<h5>
 <a class="frm-link" href="{% url 'accounts:login' %}">Već imate nalog?</a>
-</h5>
 </div>
 {% endblock %}

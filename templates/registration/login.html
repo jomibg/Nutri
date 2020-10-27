@@ -15,13 +15,13 @@
     please login with an account that has access.</p>
 {% else %}
     <p style="font-size: smaller" class="text-danger">Please login to see this page.</p>
-{% endif %}    
+{% endif %}     
 {% endif %}
 {% csrf_token %}
 <h5>
 
 {% for field in form %}
-<p class="text-info">
+<p class="text-info" align="center">
 {{ field.label_tag }}</p>
 <p>
 {{ field }}
@@ -37,10 +37,6 @@
 
 <input type="hidden" name="next" value="{{ next }}">
 </form>
-
-<h5>
-	<a class="frm-link" href="{% url 'accounts:password_reset' %}">Izgubili ste šifru?</a>
-</h5>
-
-</div>
+	<a class="frm-link" href="{% url 'accounts:password_reset' %}">Izgubili ste šifru?</a
+></div>
 {% endblock %}

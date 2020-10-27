@@ -1,11 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
+<div class="comments">
   <form action="" method="post">{% csrf_token %}
-    <h4><p class="text-danger text-center  mb-n2">
+    <h4><p class="text-danger">
     	Da li sigurno želite da obrišete objavu?
-    	<button type="submit" class="btn btn-danger btn-lg">
+    	<button type="submit" class="btn danger">
     		Obriši
     	</button>
     	</p></h4>
   </form>
+</div>
 {% endblock %} 

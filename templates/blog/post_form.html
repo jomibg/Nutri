@@ -1,20 +1,15 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="containter-fluid">
-
-<div class="row">
-<div class="mx-auto">
-    <h3>Dodaj objavu</h3>
-</div>
-<div class="mx-auto mt-2">
-<form method="POST" class="" enctype="multipart/form-data">
+<div class="wraper-flex frm w90">
+<form method="POST"  enctype="multipart/form-data">
+    <div class="naslov text-info">Dodaj objavu</div>
     {% csrf_token %}
     {{ form.media }}
     {% for field in form %}
     <p>
-    <h4 class="text-primary text-center my-2">{{ field.label_tag }}</h4>
+    <h4 class="text-info" align="center">{{ field.label_tag }}</h4>
     </p>
-    <p class="text-center">
+    <p align="center">
     {{ field }}
     </p>
     {% for error in field.errors %}
@@ -22,10 +17,7 @@
           <br>
     {% endfor %}
     {% endfor %}
-<p class="text-center"><button type="submit" class="btn btn-primary btn-lg">Dodaj objavu</button></p>
+<button type="submit" class="btn info" style="left: 45%">Dodaj objavu</button>
 </form>
-</div>
-</div>
-
 </div>
 {% endblock %}

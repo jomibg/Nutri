@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="comments">
+<h3 class=" naslov" style="cursor: default;font-family: serif;">Email pretplata:</h3>
+<div class="content">Lorem ipsum dolor sit amet consectetur adipisicing, elit. Earum molestiae rerum recusandae saepe quaerat in vero quasi omnis alias quia eius iure perspiciatis numquam, doloribus. Ipsam illum reprehenderit explicabo et.
+Sint quas doloremque sed quisquam nam perferendis maxime nulla, iure animi quasi, ab debitis placeat aliquid, maiores consequuntur magni necessitatibus suscipit inventore ex impedit magnam officiis! Numquam facilis sit iste?
+Magnam veritatis odit fugit iste? Veniam minus quis distinctio, sint culpa quaerat nesciunt, quae rerum est obcaecati officia praesentium laudantium dolor aliquam! Mollitia pariatur perferendis molestias labore nobis quis earum.
+Dolor eaque fuga doloremque iure? Eaque quia sunt, ab libero quidem repudiandae expedita corporis atque officia veniam id rerum nihil, illo vero architecto saepe excepturi veritatis ea necessitatibus pariatur iure.
+Eum dolorem sapiente magni consectetur aspernatur ipsa dolore laborum reiciendis earum iusto magnam libero eos repudiandae iure nulla, sunt obcaecati necessitatibus esse vel voluptas, accusantium nobis saepe! Dolor, necessitatibus ea?</div>
+	{% if subscribed %}
+	<h4 style="text-align: center;"><a href="{% url 'subscriptions:unsubscribe' %}" class="link-danger">Poništi pretplatu</a></h4>
+	{% else %}
+	<form action="." method="POST" style="margin: 2%;">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<button class="btn info">Pretplati se <i class="far fa-newspaper"></i></button>
+	</form>
+	{% endif %}
+</div>
+{% endblock %}

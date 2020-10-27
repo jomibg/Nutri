@@ -9,4 +9,3 @@ class PostAdmin(admin.ModelAdmin):
 admin.site.register(Topic)
 admin.site.register(Post,PostAdmin)
 admin.site.register(Comment)
-admin.site.register(Additional_image)

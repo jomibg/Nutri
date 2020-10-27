@@ -56,9 +56,12 @@ INSTALLED_APPS = [
     'django_registration',
     'storages',
     'blog',
+    'subscriptions',
     'django.contrib.postgres',
     'froala_editor',
     'debug_toolbar',
+    'django_celery_beat',
+    'django_celery_results',
 ]
 
 MIDDLEWARE = [
@@ -100,6 +103,11 @@ WSGI_APPLICATION = 'NutritionBLog.wsgi.application'
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
 
+AUTHENTICATION_BACKENDS = [
+'django.contrib.auth.backends.ModelBackend',
+ 'accounts.backends.EmailAuth',
+]
+
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -129,7 +137,7 @@ USE_L10N = True
 
 USE_TZ = True
 
-
+SITE_ID=1
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 LOGIN_REDIRECT_URL = '/'
@@ -137,3 +145,10 @@ STATIC_URL = '/static/'
 MEDIA_URL='/media/'
 #################EMAIL################################
 ACCOUNT_ACTIVATION_DAYS = 7
+#############CELERY######################################
+CELERY_BROKER_URL=get_secret('BROKER_URL')
+CELERY_ACCEPT_CONTENT = ['pickle']
+CELERY_TASK_SERIALIZER = 'pickle'
+CELERY_BEAT_SCHEDULER='django_celery_beat.schedulers:DatabaseScheduler'
+CELERY_RESULT_BACKEND='django-db'
+CELERY_CACHE_BACKEND = 'django-cache'

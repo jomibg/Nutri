@@ -1,0 +1,6 @@
+Nove objave {{date}}
+Pogledajte objave iz protekle nedelje:
+{% for p in posts %}
+{{p.title}}-{{p.get_full_url}},
+{% endfor %}
+

@@ -1,0 +1,322 @@
+:root{
+	--bg-global:#E0DFDF;
+	--nav-color:#50CD40;
+	--footer-color:#808080; 
+	--info:#2196F3;
+	--info-hover:#0b7dda; 
+	--success:#50CD40;
+	--success-hover:#46a049;
+	--warning:#ff9800;
+	--warning-hover:#e68a00;
+	--danger:#f44336;
+	--danger-hover:#da190b;
+	--default:#e7e7e7;
+	--default-hover:#fff;
+}
+/* stranice*/
+.error{
+	background-color: var(--danger);
+}
+
+.error:hover{
+	background-color: var(--danger-hover);
+}
+
+/* linkovi */
+.frm-link{
+	position: relative;
+	color: var(--info);
+	text-decoration: none;
+	text-align: center;
+	margin-top: 5px;
+}
+.frm-link:hover{
+	color:var(--info-hover);
+}
+
+.link-danger{
+	color: var(--danger);
+	text-decoration:none;
+	margin-bottom: 2%;
+}
+.link-danger:hover{
+	color: var(--danger-hover)
+}
+
+.link-success{
+	color: var(--success);
+	text-decoration:none;
+	margin-bottom: 2%;
+}
+.link-success:hover{
+	color: var(--success-hover)
+}
+/* forme */
+.frm{
+	box-sizing: border-box;
+	padding:  5% 10% 5% 10%;
+	margin: 10% 30% 10% 30%;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	-webkit-box-shadow: -12px 9px 15px 0px ;
+    -moz-box-shadow: -12px 9px 15px 0px ;
+    box-shadow: -12px 9px 15px 0px ;
+
+    border-radius: 15px;
+    background: var(--default);
+}
+.btn {
+	position: relative;
+  left: 30%;
+  border: none; /* Remove borders */
+  color: white; /* Add a text color */
+  padding: 14px 28px; /* Add some padding */
+  cursor: pointer; /* Add a pointer cursor on mouse-over */
+  border-radius: 10px;
+}
+.frm form{
+	position: relative;
+	padding: 1%;
+	display: block;
+	box-sizing: border-box;
+}
+
+
+
+.auth-input{
+	width: 100%;
+}
+.auth-input:focus{
+	color: var(--info);
+}
+
+@media screen and (max-width: 600px ){
+	.frm{
+		width: 250px;
+		padding:2%;
+		margin:20% 20%;}
+	.btn{left: 20%;}
+	.auth-input{width: 90%;}
+}
+.mbl{margin-bottom: 20%;}
+
+/* blog */
+.w90{
+	width: 90%;
+	margin: 10% auto;
+}
+
+.form-input{
+	text-align: center;
+	font-size: 20px;
+	color: var(--info);
+	border:none;
+	border-bottom: 2px solid var(--info);
+	background: var(--default);
+	width: 80%;
+}
+
+.form-input:focus{
+border-bottom: 2px solid var(--info-hover);
+color: var(--info-hover);
+}
+
+
+.detail{
+	flex-direction: column;
+	margin: 2% auto;
+}
+
+.title{
+	width: 97%;
+	margin: 2% auto 0;
+	text-align: center;
+	font-size: 30px;
+	cursor: default;
+	color: var(--success-hover);
+	background: white;
+	text-decoration: underline;
+}
+.content{
+	word-wrap: break-word;
+	background: white;
+	cursor: default;
+	margin: 0 auto;
+	width: 97%;
+}
+.date{ color: var(--info-hover); font-weight: bolder; text-align: right; }
+
+.prefs{
+	position: relative;
+}
+#likebutton{
+	display: inline;
+	position: absolute;
+	left: 40%;
+	font-size: 30px;
+	color: var(--info);
+}
+#likebutton button{
+color:var(--info);
+background: var(--bg-global);
+font-size: 30px;
+cursor: pointer;
+border: none;}
+
+#likebutton button:hover{
+	color:var(--info-hover);
+}
+
+#dislikebutton{
+	display: inline;
+	position: absolute;
+	right: 40%;
+	font-size: 30px;
+	color: var(--danger);
+}
+#dislikebutton button{
+color:var(--danger);
+background: var(--bg-global);
+font-size: 30px;
+cursor: pointer;
+border: none;}
+
+#dislikebutton button:hover{
+	color:var(--danger-hover);
+}
+
+.specs{
+	background-color: white;
+	margin: 3% auto 0;
+	color: var(--success);
+}
+
+.thumbnail{
+	margin-top: 2%;
+	width: 90%;
+	max-height: 500px;
+}
+.comments{
+	background: white;
+display: flex;
+justify-content: center;
+flex-direction: column;
+margin: 5% auto;
+width: 90%;
+box-shadow: 0 0 5px #333;
+border-radius: 10px;
+}
+
+.c-input{
+	font-size: 15px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  resize: none;
+}
+
+@media screen and (max-width: 992px){
+	.comments{margin: 15% auto;}
+	#dislikebutton{right: 10%;}
+	#likebutton{left: 10%;}
+	.detail{margin-top: 10%;}
+	.content img{max-width: 300px;}
+}
+
+@media screen and (max-width:600px;){
+.content img{max-width: 180px;}
+}
+
+.objava{
+	width: 70%;
+	margin: 2% auto;
+	display: inline-flex;
+	border-radius: 10px;
+	justify-content: space-between;
+	padding: 2px;
+	text-decoration: none;
+	background: var(--success);
+	color: white;
+	font-weight: bolder;
+}
+.objava img {
+max-width: 100px;
+border-radius: 10px;
+margin-right: 5%;
+}
+.objava:hover{
+	background: var(--success-hover);
+}
+
+.datum{
+	margin: auto 5%;
+	cursor: default;
+	word-wrap: break-word;
+}
+@media screen and (max-width: 600px){
+	.datum{display: none;}
+}
+
+.search{
+	box-sizing: border-box;
+	padding: 0;
+	display: inline-block;
+	width: 70%;
+	margin: 1% auto;
+}
+.search input[type=text] {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 70%;
+  background: #f1f1f1;
+}
+.search button {
+  float: left;
+  width: 25%;
+  padding: 10px;
+  background: var(--info);
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none;
+  cursor: pointer;
+}
+.search button:hover {
+  background: var(--info-hover);
+}
+
+
+.pagination {
+  display: inline-block;
+  margin: 1px auto;
+}
+
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+.pagination a.active {
+  background-color: var(--success);
+  color: white;
+}
+
+.tema{
+	font-family: serif;
+	font-weight: bolder;
+	font-size: 20px;
+	display: inline-block;
+	margin: 1% 35% 1%;
+	width: 30%;
+	padding:1%;
+	text-align: center;
+	border-bottom: 5px double var(--footer-color);
+}

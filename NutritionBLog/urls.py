@@ -35,9 +35,11 @@ urlpatterns = [
     path('sitemap.xml', views.index, {'sitemaps': sitemaps}),
     path('sitemap-<section>.xml', views.sitemap, {'sitemaps': sitemaps},
          name='django.contrib.sitemaps.views.sitemap'),
+    path('subs/',include('subscriptions.urls')),
     ]
+    
 if settings.DEBUG:
     import debug_toolbar
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
     urlpatterns += [path('__debug__/',include(debug_toolbar.urls))]
- 
+
