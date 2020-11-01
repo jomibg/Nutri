@@ -1,5 +1,4 @@
 from ._base import *
-#DEBUG==False <-----!!!
 ##########################EMAIL##################################
 EMAIL_HOST='smtp.gmail.com'
 EMAIL_PORT=587
@@ -30,3 +29,12 @@ AWS_S3_REGION_NAME='eu-central-1'
 AWS_S3_HOST = 'eu-central-1.amazonaws.com'
 AWS_DEFAULT_ACL=None
 AWS_S3_SIGNATURE_VERSION='s3v4'
+#######################CACHES###################################
+CACHES={
+    'default': {
+        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+        'LOCATION': get_secret("MEMCACHED_ENDPOINT"),
+        'TIMEOUT': 3600*3,
+    }
+
+}

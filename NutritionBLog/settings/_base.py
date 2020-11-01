@@ -36,10 +36,10 @@ TEMPLATE_DIR = os.path.join(BASE_DIR,'templates')
 SECRET_KEY = get_secret('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['ec2-18-185-137-248.eu-central-1.compute.amazonaws.com']
+WEBSITE_URL='ec2-18-185-137-248.eu-central-1.compute.amazonaws.com'
 
 # Application definition
 

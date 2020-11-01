@@ -1,4 +1,4 @@
-dev=True
+dev=False
 if dev:
 	from .development import *
 else:
